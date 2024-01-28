@@ -1,6 +1,7 @@
 * {
     /* `otf-font-awesome` is required to be installed for icons */
-    font-family: FontAwesome, Roboto, Helvetica, Arial, sans-serif;
+    /*font-family: FontAwesome, Roboto, Helvetica, Arial, sans-serif;*/
+    font-family: "Fira Sans Semibold", FontAwesome, Roboto, Helvetica, Arial, sans-serif;
     font-size: 13px;
 }
 
@@ -11,32 +12,15 @@
 
 window#waybar {
     border-radius: 10px;
-    background-color: rgba(43, 48, 59, 0.5);
+    background-color: rgba(0, 0, 0, .8);
     color: #ffffff;
+    background: transparent;
     transition-property: background-color;
     transition-duration: .5s;
 }
 
 window#waybar.hidden {
     opacity: 0.2;
-}
-
-/*
-window#waybar.empty {
-    background-color: transparent;
-}
-window#waybar.solo {
-    background-color: #FFFFFF;
-}
-*/
-
-window#waybar.termite {
-    background-color: #3F3F3F;
-}
-
-window#waybar.chromium {
-    background-color: #000000;
-    border: none;
 }
 
 button {
@@ -47,7 +31,6 @@ button {
     border-radius: 0;
 }
 
-/* https://github.com/Alexays/Waybar/wiki/FAQ#the-workspace-buttons-have-a-strange-hover-effect */
 button:hover {
     background: inherit;
     box-shadow: inset 0 -3px #ffffff;
@@ -82,8 +65,7 @@ button:hover {
 #cpu,
 #memory,
 #disk,
-#temperature,
-#backlight,
+#temperature, #backlight,
 #network,
 #pulseaudio,
 #wireplumber,
@@ -92,10 +74,12 @@ button:hover {
 #mode,
 #idle_inhibitor,
 #scratchpad,
-#mpd {
-    border-radius: 10px;
+#mpd,
+#custom-brightness_temp,
+#custom-gpu_info {
+    border-radius: 50px;
     padding: 0 10px;
-    color: #ffffff;
+    color: #ffffff; 
 }
 
 #window,
@@ -114,30 +98,31 @@ button:hover {
 }
 
 #clock {
-    /*background-color: #64727D;*/
+    background-color: #FFFFFF;
     font-size: 15px;
+    color: black;
 }
 
 #battery {
-    background-color: #ffffff;
-    color: #000000;
+    background-color: rgba(255,255,255, 1);
+    color: #666666;
+    border-width: 3px;
+    border-style: solid;
+
 }
 
 #battery.charging, #battery.plugged {
-    color: #ffffff;
-    background-color: #26A65B;
+    border-color: #26A65B;
 }
 
 @keyframes blink {
     to {
-        background-color: #ffffff;
-        color: #000000;
+        border-color: #ffffff;
     }
 }
 
 #battery.critical:not(.charging) {
-    background-color: #f53c3c;
-    color: #ffffff;
+    border-color: #f53c3c;
     animation-name: blink;
     animation-duration: 0.5s;
     animation-timing-function: linear;
@@ -149,13 +134,11 @@ label:focus {
     background-color: #000000;
 }
 
-#cpu {
-    background-color: #2ecc71;
-    color: #000000;
-}
-
+#cpu,
+#temperature,
 #memory {
-    background-color: #9b59b6;
+    background-color: rgba(0,0,0,0);
+    color: #ffffff;
 }
 
 #disk {
@@ -167,16 +150,18 @@ label:focus {
 }
 
 #network {
-    background-color: #2980b9;
+    background-color: rgba(255,255,255,1);
+    color: #666666;
 }
 
 #network.disconnected {
-    background-color: #f53c3c;
+    /*background-color: #f53c3c;*/
+    color: #f53c3c;
 }
 
 #pulseaudio {
-    background-color: #f1c40f;
-    color: #000000;
+    background-color: rgba(102,102,102, 1);
+    color: #ffffff;
 }
 
 #pulseaudio.muted {
@@ -207,28 +192,27 @@ label:focus {
     background-color: #ffa000;
 }
 
-#custom-brightness {
+#custom-brightness_temp {
     padding: 0px 10px;
-    /*background-color: #4caf50;*/
-    color: #ffffff;
-}
-
-#custom-temp {
-    padding: 0px 10px;
-    /*background-color: #2196f3;*/
-    color: #ffffff;
+    background-color: #FFFFFF;
+    border-style: solid;
+    border-width: 3px;
+    border-color: #666666;
+    color: #666666;
 }
 
 #temperature {
-    background-color: #f0932b;
+    margin-left: -23px;
+    color: #f0932b;
 }
 
 #temperature.critical {
-    background-color: #eb4d4b;
+    color: #eb4d4b;
 }
 
 #tray {
-    background-color: #2980b9;
+    background: transparent;
+    background-color: rgba(0,0,0,0);
 }
 
 #tray > .passive {
@@ -238,6 +222,10 @@ label:focus {
 #tray > .needs-attention {
     -gtk-icon-effect: highlight;
     background-color: #eb4d4b;
+}
+
+#tray * {
+    margin-right: 10px;
 }
 
 #idle_inhibitor {
