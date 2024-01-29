@@ -2,18 +2,21 @@ max-visible=10
 default-timeout=5000
 border-radius=10
 border-size=0
+font=Fira Sans Semibold 10
+format=<span color="#000000">%s</span> \n%b
+margin=10, 20
 
 [urgency=low]
-background-color=#285577
-text-color=#ffffff
+background-color=#ffffff
+text-color=#666666
 
 [urgency=normal]
-background-color=#88C0D0
-text-color=#2E3440
+background-color=#ffffff
+text-color=#666666
 
 [urgency=critical]
-background-color=#BF616A
-text-color=#ECEFF4
+background-color=#ffffff
+text-color=#666666
 
 [app-name=Spotify]
 background-color=#1DB954
