@@ -76,6 +76,7 @@ button:hover {
 #scratchpad,
 #mpd,
 #custom-brightness_temp,
+#custom-cpu_info,
 #custom-gpu_info {
     border-radius: 50px;
     padding: 0 10px;

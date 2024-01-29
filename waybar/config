@@ -8,7 +8,7 @@
     "border-radius": 20,
     "modules-left": ["custom/brightness_temp", "tray"],
     "modules-center": ["custom/media", "clock"],
-    "modules-right": ["pulseaudio", "network", "cpu", "temperature", "custom/gpu_info", "memory", "battery", "battery#bat2"],
+    "modules-right": ["pulseaudio", "network", "custom/cpu_info", "custom/gpu_info", "memory", "battery", "battery#bat2"],
     
     "clock": {
         // "timezone": "America/New_York",
@@ -89,6 +89,11 @@
     },
     "custom/brightness_temp": {
         "exec": "$HOME/.config/waybar/scripts/get_brightness_temp.sh",
+        "return-type": "json"
+    },
+    "custom/cpu_info": {
+        "exec": "$HOME/.config/waybar/scripts/get_cpu_info.sh",
+        "interval": 5,
         "return-type": "json"
     },
     "custom/gpu_info": {
